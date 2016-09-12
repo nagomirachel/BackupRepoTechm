@@ -1,0 +1,121 @@
+$ oc new-project test --display-name="OpenShift 3 Sample" --description="This is an example project to demonstrate OpenShift v3"
+$ oc policy add-role-to-user edit system:serviceaccount:test:default
+oc describe serviceaccount default
+Name:           default
+Namespace:      test
+Labels:         <none>
+
+Image pull secrets:     default-dockercfg-xnrkl
+
+Mountable secrets:      default-token-t3j64
+                        default-dockercfg-xnrkl
+
+Tokens:                 default-token-kueyw
+                        default-token-t3j64
+[demo1@ose-master ~]$ $ oc describe secret default-token-t3j64
+-bash: $: command not found
+[demo1@ose-master ~]$  oc describe secret default-token-t3j64
+Name:           default-token-t3j64
+Namespace:      test
+Labels:         <none>
+Annotations:    kubernetes.io/service-account.name=default,kubernetes.io/service-account.uid=c2b492d5-caf8-11e5-aba5-40a8f05d86b9
+
+Type:   kubernetes.io/service-account-token
+
+Data
+====
+ca.crt: 1066 bytes
+token:  eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJ0ZXN0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRlZmF1bHQtdG9rZW4tdDNqNjQiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGVmYXVsdCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6ImMyYjQ5MmQ1LWNhZjgtMTFlNS1hYmE1LTQwYThmMDVkODZiOSIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDp0ZXN0OmRlZmF1bHQifQ.RYJnaNnR3jdLPgpPYqyo8fe7Ji8rGg9Cv54uSeUdAj8aL3RbsaQkdjug_PK1dc8o-IKja8PectgdyInxo-9dHpa-nvr3pelSlV50O70OdXBmxjtfMgJBY1KsKvFJ2Czs2PpITTLa8XdAKKcysBv32xQPH6Psc0xSLBmO3RVQdipMbEuYV6KNApYXnQQuSf6L-85o-iFrnT1nus945-xgflGrLUuiZsC4dwtsDBF6UzY2S7h09O0aTKg5G9IcROX9RNL03u-u1O6gyZvJ5PNQmhEdR2T__8TAvHlv3DCWF5YWNVFGml6y96aCHYfGWILqU0G5gxrSwQbFscNgFKOiWw
+
+
+[demo1@ose-master ~]$
+
+
+$ oc new-app jenkins-ephemeral-template.json
+demo1@ose-master ~]$  oc new-app jenkins-ephemeral-template.json
+--> Deploying template jenkins-ephemeral for "jenkins-ephemeral-template.json"
+     With parameters:
+      JENKINS_SERVICE_NAME=jenkins
+      JENKINS_PASSWORD=password # generated
+--> Creating resources ...
+    Service "jenkins" created
+    Route "jenkins" created
+    DeploymentConfig "jenkins" created
+--> Success
+    Run 'oc status' to view your app.
+[demo1@ose-master ~]$ oc new-app mysql-ephemeral-template.json
+--> Deploying template mysql-ephemeral for "mysql-ephemeral-template.json"
+     With parameters:
+      DATABASE_SERVICE_NAME=mysql
+      MYSQL_USER=root
+      MYSQL_PASSWORD=root123
+      MYSQL_DATABASE=sampledb
+--> Creating resources ...
+    Service "mysql" created
+    DeploymentConfig "mysql" created
+--> Success
+    Run 'oc status' to view your app.
+	
+[demo1@ose-master ~]$ oc rsh mysql-1-805n2
+ DATABASE_SERVICE_NAME=mysql
+      MYSQL_USER=userFGA # generated
+      MYSQL_PASSWORD=iHjK2xFcBofDy5r6 # generated
+      MYSQL_DATABASE=sampledb
+	  
+	  
+	  demo1
+	  redhat
+mysql     172.30.206.41   <none>        3306/TCP   name=mysql     1h
+ cd /opt/eap
+ JAVA: /usr/lib/jvm/java-1.8.0/bin/java
+ 
+ 
+ websphere liberty 8.5
+ 
+ [demo1@ose-master ~]$ oc get is -n test
+
+ 
+ [demo1@ose-master ~]$ oc delete is jboss-eap64-openshift -n test
+https://docs.openshift.com/enterprise/3.0/using_images/xpaas_images/eap.html
+osc new-app -i openshift/ruby https://github.com/openshift/ruby-hello-world#beta4
+
+jenkins 
+un:admin
+pwd:password
+[demo1@ose-master ~]$ oc expose service/jboss-eap --hostname=jbosseap.ose3.techmahindra.com
+	
+
+[root@osenode2 ~]# mkdir gitrepo
+[root@osenode2 ~]# mkdir osegitrepo
+[root@osenode2 ~]# cd osegitrepo/
+[root@osenode2 osegitrepo]# git init
+Initialized empty Git repository in /root/osegitrepo/.git/
+[root@osenode2 osegitrepo]# cd
+[root@osenode2 ~]# git clone /r
+root/ run/
+[root@osenode2 ~]# git clone /root/osegitrepo/ /root/ose3.1gitrepo
+Cloning into '/root/ose3.1gitrepo'...
+warning: You appear to have cloned an empty repository.
+done.
+
+git://github.com/priyanr25/jbpmrepo.git 
+
+ <passwordHash>IxRopz:578311359dadd2ba7e6c70eb82c77e8881f695f2f5a407f6d61a8f4
+58106d833</passwordHash>
+
+
+/var/lib/origin/openshift.local.volumes/pods/b5bff2ae-d09d-11e5-934a-40a8f05d86b9/volumes/kubernetes.io~empty-dir/jenkins-data
+ANT_HOME=/var/lib/jenkins/apache-ant-1.9.6
+bash-4.2$ PATH=$PATH:/var/lib/jenkins/apache-ant-1.9.6/bin
+bash-4.2$ export ANT_HOME
+bash-4.2$ export PATH
+find -name *jdk
+update-alternatives --display java
+
+export JAVA_HOME
+bash-4.2$ PATH=$PATH:$JAVA_HOME
+bash-4.2$ export PATH
+
+
+
+ git config --global http.proxy http://pn00334894:feb*2016@10.30.0.153:8080

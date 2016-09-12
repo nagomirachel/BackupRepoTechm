@@ -1,0 +1,10 @@
+package com.poc.drools
+import com.poc.drools.Candidate;
+
+rule "Is Candidate eligible for voting"
+dialect 'mvel'
+when
+    $candidate : Candidate( age > 18 )
+then
+	$candidate.setValid(true);    
+end

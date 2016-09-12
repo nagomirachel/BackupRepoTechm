@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="adms-spring-web" xmlns:sonar="antlib:org.sonar.ant">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../eclipse"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+	<property name="build.dir" location="target/bin" />
+	<property name="build.test.dir" location="target/bin/tests" />
+	<property name="test.dir" location="target/tests" />
+	<property name="test.report.dir" location="target/testreport" />
+
+
+<!-- Define the Sonar properties -->
+	
+<property name="sonar.projectKey" value="org.codehaus.sonar:example-java-ant" />
+<property name="sonar.projectName" value="ADMS spring application" />
+<property name="sonar.projectVersion" value="1.0" />
+<property name="sonar.language" value="java" />
+<property name="sonar.sources" value="src" />
+<property name="sonar.binaries" value="target" />
+<property name="sonar.sourceEncoding" value="UTF-8" />
+<property name="sonar.skipPackageDesign" value="true" />
+<property name="sonar.jdbc.url" value="jdbc:h2:tcp://localhost:9092/sonar" />
+<property name="sonar.jdbc.username" value="sonar" />
+<property name="sonar.jdbc.password" value="sonar" />	
+	   
+	<path id="Web App Libraries.libraryclasspath">
+            	<pathelement location="WebContent/WEB-INF/lib/commons-logging-1.1.3.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/commons-lang-2.4.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/commons-beanutils-1.8.3.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/commons-digester-2.0.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/commons-discovery-0.2.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/commons-fileupload-1.2.2.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/commons-io-2.3.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/servlet-api.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/java-json.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/jaxrpc.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/jstl-1.2.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/axis.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/log4j-1.2.17.jar" />
+				<pathelement location="WebContent/WEB-INF/lib/mysql-connector-java-5.1.10.jar"/>            
+            	<pathelement location="WebContent/WEB-INF/lib/spring-aop-4.0.2.RELEASE.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/spring-aspects-4.0.2.RELEASE.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/spring-context-4.0.2.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/spring-context-support-4.0.2.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/spring-beans-4.0.2.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/spring-core-4.0.2.RELEASE.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/spring-data-commons-core-1.4.0.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/spring-expression-4.0.2.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/spring-jdbc-3.1.2.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/org.springframework.transaction-3.1.1.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/spring-web-4.0.2.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/spring-webmvc-4.0.2.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/spring-data-jpa-1.2.0.RELEASE.jar" />
+	            <pathelement location="WebContent/WEB-INF/lib/spring-tx-4.0.2.RELEASE.jar" />
+	            <pathelement location="WebContent/WEB-INF/lib/spring-orm-3.1.2.RELEASE.jar" />          
+            	<pathelement location="WebContent/WEB-INF/lib/wsdl4j-1.6.1.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/webserviceutils.jar" />
+		        <pathelement location="WebContent/WEB-INF/lib/jaxb-api.jar" />
+		        <pathelement location="WebContent/WEB-INF/lib/jaxb-impl.jar" />
+		        <pathelement location="WebContent/WEB-INF/lib/jaxb-xjc.jar" />
+		        <pathelement location="WebContent/WEB-INF/lib/jaxen.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/saaj.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/slf4j-api-1.7.7.jar" />
+		        <pathelement location="WebContent/WEB-INF/lib/tiles-api-2.2.2.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/tiles-core-2.2.2.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/tiles-jsp-2.2.2.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/tiles-servlet-2.2.2.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/tiles-template-2.2.2.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/adms-common-java.jar" />
+				<pathelement location="WebContent/WEB-INF/lib/junit4-4.8.2.jar"/>
+				<pathelement location="WebContent/WEB-INF/lib/mockito-all-1.8.5"/>
+				<pathelement location="WebContent/WEB-INF/lib/mockito-all-1.9.5"/>
+				<pathelement location="WebContent/WEB-INF/lib/mockito-core-1.8.0"/>
+				<pathelement location="WebContent/WEB-INF/lib/mockito-core-1.8.5"/>
+      </path>
+
+    <path id="EAR Libraries.libraryclasspath"/>
+    <path id="adms-spring-web.classpath">
+        <pathelement location="build/classes"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>	
+    </path>
+
+<path id="class.path">
+	 <pathelement path="build/classes"/>
+<pathelement path="WebContent/WEB-INF/lib/*"/>
+ </path>
+
+    <target name="init">
+	    <mkdir dir="${build.dir}" />
+		<mkdir dir="${build.test.dir}" />
+		<mkdir dir="${test.report.dir}" />	
+        <mkdir dir="build/classes"/>
+        <copy includeemptydirs="false" todir="build/classes">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="clean">
+        <delete dir="build/classes"/>
+    </target>
+	
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+
+
+
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="false" debuglevel="${debuglevel}" destdir="build/classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="adms-spring-web.classpath"/>
+        </javac>		
+       </target>
+	   
+		<target name="junit">
+		<!--<copy file="src/main/java/applicationContext.xml" tofile="build/classes/applicationContext.xml" overwrite="true" />
+		<copy file="src/main/java/db.properties" tofile="build/classes/db.properties" overwrite="true" />
+		<copy file="src/main/java/log4j.properties" tofile="build/classes/log4j.properties" overwrite="true" />-->
+
+		<junit printsummary="on" fork="true" haltonfailure="no">
+		<formatter type="xml" />
+			
+			<classpath>			    
+				<pathelement location="WebContent/WEB-INF/lib/junit4-4.8.2.jar"/>
+				<pathelement path="WebContent/WEB-INF/lib/*"/>
+				<pathelement path="build/classes"/>
+			</classpath>
+			
+			<batchtest todir="${test.report.dir}">
+				<fileset dir="build/classes">
+					<include name="**/AllTests*.class" />
+				</fileset>
+			</batchtest>
+		</junit>
+		</target>
+		
+		
+		<target name="sonar">
+    <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">	
+			<!-- Update the following line, or put the "sonar-ant-task-*.jar" file in your "$HOME/.ant/lib" folder -->	
+			<classpath path="D:\sonar-ant-task-2.2.jar"/>
+		</taskdef>	
+		<!-- Execute Sonar -->
+		<sonar:sonar />
+	</target>
+	
+	
+	<target name="deploywebapp" depends="build-project">
+
+		<war destfile="target/adms-spring-web.war" webxml="WebContent/WEB-INF/web.xml">
+		   <fileset dir="WebContent">
+			  <include name="**/*.*"/>
+		   </fileset>  
+		   <classes dir="build/classes"/>
+		</war>
+
+    </target>
+</project>
+

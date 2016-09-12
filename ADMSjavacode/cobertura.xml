@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="cobertura.examples.basic" default="coverage" basedir=".">
+
+	<description>
+    Cobertura - http://cobertura.sourceforge.net/
+    Copyright (C) 2003 jcoverage ltd.
+    Copyright (C) 2005 Mark Doliner &lt;thekingant@users.sourceforge.net&gt;
+    Copyright (C) 2006 Dan Godfrey
+    Cobertura is licensed under the GNU General Public License
+    Cobertura comes with ABSOLUTELY NO WARRANTY
+    </description>
+
+	
+	<property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../eclipse"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+	<property name="build.dir" location="target/bin" />    
+	<property name="build.test.dir" location="target/bin/tests" />
+	<property name="test.dir" location="target/tests" />
+	<property name="test.report.dir" location="target/testreport" />
+	
+	
+	<property file="cobertura.properties" />
+
+	<path id="cobertura.classpath">
+	<pathelement location="WebContent/WEB-INF/lib/log4j-1.2.17.jar" />
+	<pathelement location="WebContent/WEB-INF/lib/asm-5.0.1.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/commons-lang-2.6.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/logback-core-1.0.9.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/slf4j-api-1.7.7.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/hamcrest-core-1.3.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/cobertura-2.1.1.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/org.apache.servicemix.bundles.oro-2.0.8_5.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/asm-util-5.0.3.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/commons-lang3-3.3.2.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/slf4j-nop-1.7.16.jar"/>
+		<fileset dir="${cobertura.dir}">
+			<include name="cobertura*.jar" />
+			<include name="lib/**/*.jar" />
+		</fileset>
+	</path>
+
+	<taskdef classpathref="cobertura.classpath" resource="tasks.properties"/>
+
+	
+<path id="Web App Libraries.libraryclasspath">
+            	<pathelement location="WebContent/WEB-INF/lib/commons-logging-1.1.3.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/commons-lang-2.4.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/commons-beanutils-1.8.3.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/commons-digester-2.0.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/commons-discovery-0.2.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/commons-fileupload-1.2.2.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/commons-io-2.3.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/servlet-api.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/java-json.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/jaxrpc.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/jstl-1.2.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/axis.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/log4j-1.2.17.jar" />
+				<pathelement location="WebContent/WEB-INF/lib/mysql-connector-java-5.1.10.jar"/>            
+            	<pathelement location="WebContent/WEB-INF/lib/spring-aop-4.0.2.RELEASE.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/spring-aspects-4.0.2.RELEASE.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/spring-context-4.0.2.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/spring-context-support-4.0.2.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/spring-beans-4.0.2.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/spring-core-4.0.2.RELEASE.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/spring-data-commons-core-1.4.0.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/spring-expression-4.0.2.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/spring-jdbc-3.1.2.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/org.springframework.transaction-3.1.1.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/spring-web-4.0.2.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/spring-webmvc-4.0.2.RELEASE.jar" />
+	    		<pathelement location="WebContent/WEB-INF/lib/spring-data-jpa-1.2.0.RELEASE.jar" />
+	            <pathelement location="WebContent/WEB-INF/lib/spring-tx-4.0.2.RELEASE.jar" />
+	            <pathelement location="WebContent/WEB-INF/lib/spring-orm-3.1.2.RELEASE.jar" />          
+            	<pathelement location="WebContent/WEB-INF/lib/wsdl4j-1.6.1.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/webserviceutils.jar" />
+		        <pathelement location="WebContent/WEB-INF/lib/jaxb-api.jar" />
+		        <pathelement location="WebContent/WEB-INF/lib/jaxb-impl.jar" />
+		        <pathelement location="WebContent/WEB-INF/lib/jaxb-xjc.jar" />
+		        <pathelement location="WebContent/WEB-INF/lib/jaxen.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/saaj.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/slf4j-api-1.7.7.jar" />
+		        <pathelement location="WebContent/WEB-INF/lib/tiles-api-2.2.2.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/tiles-core-2.2.2.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/tiles-jsp-2.2.2.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/tiles-servlet-2.2.2.jar" /> 
+            	<pathelement location="WebContent/WEB-INF/lib/tiles-template-2.2.2.jar" />
+            	<pathelement location="WebContent/WEB-INF/lib/adms-common-java.jar" />
+				<pathelement location="WebContent/WEB-INF/lib/junit4-4.8.2.jar"/>
+				<pathelement location="WebContent/WEB-INF/lib/mockito-all-1.8.5.jar"/>
+				<pathelement location="WebContent/WEB-INF/lib/mockito-all-1.9.5.jar"/>
+				<pathelement location="WebContent/WEB-INF/lib/mockito-core-1.8.0.jar"/>
+				<pathelement location="WebContent/WEB-INF/lib/mockito-core-1.8.5.jar"/>
+	<pathelement location="WebContent/WEB-INF/lib/asm-5.0.1.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/commons-lang-2.6.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/logback-core-1.0.9.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/slf4j-api-1.7.7.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/hamcrest-core-1.3.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/cobertura-2.1.1.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/org.apache.servicemix.bundles.oro-2.0.8_5.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/asm-util-5.0.3.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/commons-lang3-3.3.2.jar"/>
+<pathelement location="WebContent/WEB-INF/lib/slf4j-nop-1.7.16.jar"/>
+      </path>
+
+	
+	
+    <path id="EAR Libraries.libraryclasspath"/>
+	 <path  id = "classpath.dir" > 
+            <fileset  dir = "WebContent/WEB-INF/lib/"  includes = "*.jar"  /> 
+        </path> 
+		
+    <path id="adms-spring.classpath">
+        <pathelement location="build/classes"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>	
+		<path refid = "classpath.dir"  /> 
+		<fileset dir="${cobertura.dir}">
+			<include name="cobertura*.jar" />
+			<include name="WebContent/WEB-INF/lib/**/*.jar" />
+		</fileset>
+    </path>
+
+	
+	
+	<target name="init">
+		<mkdir dir="${classes.dir}" />
+		<mkdir dir="${instrumented.dir}" />
+		<mkdir dir="${reports.xml.dir}" />
+		<mkdir dir="${reports.html.dir}" />
+		<mkdir dir="${coverage.xml.dir}" />
+		<mkdir dir="${coverage.summaryxml.dir}" />
+		<mkdir dir="${coverage.html.dir}" />
+		
+		
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${build.test.dir}" />
+		<mkdir dir="${test.report.dir}" />	
+		<mkdir dir="${test.dir}"/>
+		
+
+        <mkdir dir="build/classes"/>
+        <copy includeemptydirs="false" todir="build/classes">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+
+	</target>
+
+	<target name="compile" depends="init">
+	<!--
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" debug="yes">
+			<classpath refid="cobertura.classpath" />
+		</javac>
+		-->
+		
+		  <javac debug="false" debuglevel="${debuglevel}" destdir="${classes.dir}" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="adms-spring.classpath"/>
+        </javac>
+	</target>
+
+	<target name="instrument" depends="init,compile">
+		<!--
+			Remove the coverage data file and any old instrumentation.
+			<delete file="cobertura.ser"/>
+		<delete dir="${instrumented.dir}" />
+		-->
+			
+		
+
+		<!--
+			Instrument the application classes, writing the
+			instrumented classes into ${build.instrumented.dir}.
+		-->
+		<cobertura-instrument todir="${instrumented.dir}" datafile="cobertura.ser">
+			<!--
+				The following line causes instrument to ignore any
+				source line containing a reference to log4j, for the
+				purposes of coverage reporting.
+			-->
+			
+			<fileset dir="${classes.dir}">
+				<!--
+					Instrument all the application classes, but
+					don't instrument the test classes.
+				-->
+				<include name="**/*.class" />
+				<exclude name="**/*Test.class" />
+			</fileset>
+		</cobertura-instrument>
+	</target>
+
+	<target name="test" depends="init,compile">
+		<!-- <copy file="src/main/java/applicationContext.xml" tofile="build/classes/applicationContext.xml" overwrite="true" />
+		<copy file="src/main/java/db.properties" tofile="build/classes/db.properties" overwrite="true" />
+		<copy file="src/main/java/log4j.properties" tofile="build/classes/log4j.properties" overwrite="true" /> -->
+
+		<junit printsummary="on" fork="yes"  failureProperty="test.failed">
+		<formatter type="xml" />
+			
+			<classpath>			    
+				<pathelement location="WebContent/WEB-INF/lib/junit4-4.8.2.jar"/>
+				<pathelement path="WebContent/WEB-INF/lib/*"/>
+				<pathelement path="build/classes"/>
+			</classpath>
+			<classpath refid="cobertura.classpath" />
+			<batchtest todir="${test.report.dir}">
+				<fileset dir="build/classes">
+					<include name="**/AllTests*.class" />
+				</fileset>
+			</batchtest>
+		</junit>
+
+		<junitreport todir="${test.report.dir}">
+			<fileset dir="${test.report.dir}">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report format="frames" todir="${reports.html.dir}" />
+		</junitreport>
+	</target>
+
+	<target name="coverage-check">
+		<cobertura-check branchrate="34" totallinerate="100" />
+	</target>
+
+	<target name="coverage-report">
+		<!--
+			Generate an XML file containing the coverage data using
+			the "srcdir" attribute.
+		-->
+		<cobertura-report srcdir="${src.dir}" destdir="${coverage.xml.dir}" format="xml" />
+	</target>
+
+	<target name="summary-coverage-report">
+		<!--
+			Generate an summary XML file containing the coverage data using
+			the "srcdir" attribute.
+		-->
+		<cobertura-report srcdir="${src.dir}" destdir="${coverage.summaryxml.dir}" format="summaryXml" />
+	</target>
+
+	<target name="alternate-coverage-report">
+		<!--
+			Generate a series of HTML files containing the coverage
+			data in a user-readable form using nested source filesets.
+		-->
+		<cobertura-report destdir="${coverage.html.dir}">
+			<fileset dir="${src.dir}">
+				<include name="**/*.java"/>
+			</fileset>
+		</cobertura-report>
+	</target>
+
+	<target name="clean" description="Remove all files created by the build/test process.">
+		<delete dir="${classes.dir}" />
+		<delete dir="${instrumented.dir}" />
+		<delete dir="${reports.dir}" />
+		<delete file="cobertura.log" />
+		<delete file="cobertura.ser" />
+	</target>
+
+	<target name="coverage" depends="compile,instrument,test,coverage-report,summary-coverage-report,alternate-coverage-report" description="Compile, instrument ourself, run the tests and generate JUnit and coverage reports."/>
+
+</project>

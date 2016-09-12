@@ -1,0 +1,20 @@
+1. install git exe
+2. open git bash
+3. craete repo in bpm suite console
+4. copy the git url D:\jbpm\jboss-eap-6.4.0\jboss-eap-6.4\bin\.niogit\jbpm-playground.git
+5. go to git bash and clone the repo
+
+git clone D:\jbpm\jboss-eap-6.4.0\jboss-eap-6.4\bin\.niogit\jbpm-playground.git
+
+nb00334916@INCHCMPC09482 MINGW64 ~
+$ git clone D:/jbpm/jboss-eap-6.4.0/jboss-eap-6.4/bin/.niogit/jbpm-playground.git
+Cloning into 'jbpm-playground'...
+done.
+
+6.
+cd jbpm-playground
+
+copy the files
+7. git add .
+8. git commit -am "fdsf"
+9.git push

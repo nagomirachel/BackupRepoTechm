@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/javax.jms.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/kie-api-6.2.0-20140808.152631-138.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/kie-ci-6.2.0-20140808.162104-127.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/kie-internal-6.2.0-20140808.152756-138.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/kie-remote-client-6.2.0.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/kie-server-api-6.2.0.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/kie-server-client-6.2.0.Final.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,8 @@
+helix-admin.bat --zkSvr localhost:2181 --addCluster domain-cluster-bpm-new-1
+helix-admin.bat --zkSvr localhost:2181 --addNode domain-cluster-bpm-new-1 node111:123
+helix-admin.bat --zkSvr localhost:2181 --addNode domain-cluster-bpm-new-1 node222:124
+helix-admin.bat --zkSvr localhost:2181 --addResource domain-cluster-bpm-new-1 vfs-repo 1 LeaderStandby AUTO_REBALANCE
+helix-admin.bat --zkSvr localhost:2181 --rebalance domain-cluster-bpm-new-1 vfs-repo 2
+
+start the Helix controller to manage the cluster
+run-helix-controller.bat --zkSvr localhost:2181 --cluster domain-cluster-bpm-new-1 2>&1 > D:\jbpm\jbpm_cluster\jboss-bpmsuite-6.2.0.GA-supplementary-tools\jboss-brms-bpmsuite-6.2-supplementary-tools\helix-core\controller.log

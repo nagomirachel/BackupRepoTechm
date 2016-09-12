@@ -1,0 +1,20 @@
+package com.poc.drools
+import com.poc.drools.Applicant;
+
+rule "Is applicant age valid"
+dialect 'mvel'
+when
+    $applicant : Applicant( age > 41 && age < 50)
+then
+	//$applicant.setValid(true);  
+	 $applicant.setAgeRange("middleage"); 
+end
+
+rule "Is applicant age old"
+dialect 'mvel'
+when
+    $applicant : Applicant( age > 70)
+then
+	//$applicant.setValid(true);  
+	 $applicant.setAgeRange("oldage"); 
+end

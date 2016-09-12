@@ -1,0 +1,6 @@
+<project name="adms-spring-web" default="all" basedir=".">
+<target name="all">
+          <description>Deploy the war file into server</description>
+    		<copy file="target/adms-spring-web.war" todir="D:\jboss-as-7.1.1.Final\standalone\deployments"/>
+    </target>
+	</project>

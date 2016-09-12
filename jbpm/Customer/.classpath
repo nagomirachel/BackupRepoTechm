@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-audit-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-bpmn2-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-executor-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-flow-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-flow-builder-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-human-task-audit-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-human-task-core-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-human-task-jpa-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-human-task-workitems-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-kie-services-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-persistence-jpa-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-runtime-manager-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-services-api-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-services-cdi-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-services-ejb-api-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-services-ejb-client-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-services-ejb-impl-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-shared-services-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-test-6.2.0.CR4.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-test-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/jbpm-workitems-6.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/junit4-4.8.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/javax.persistence.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/btm-2.1.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/drools-decisiontables-6.0.1.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/drools-jsr94-6.0.1.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/drools-persistence-jpa-6.0.1.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/drools-persistence-jpa-6.2.0-20140808.161017-128.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/drools-templates-6.0.1.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/drools-verifier-6.0.1.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/slf4j-log4j12-1.5.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/log4j-1.2.17.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/slf4j-api-1.7.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/org.eclipse.jdt.core_3.9.2.v20140114-1555.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/antlr-2.7.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/whale/ext-jars/antlr-runtime-3.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/jars/drools-compiler-6.2.0.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/jars/drools-core-6.2.0.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/jars/jbpm-flow-builder-5.2.0.final.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/jars/jbpm-flow-builder-6.2.0.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/jars/kie-api-6.2.0.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/jars/kie-ci-6.2.0.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/jars/kie-internal-6.2.0.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/jars/mvel2-2.2.6.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/jars/commons-codec-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/jars/hamcrest-all-1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/jars/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="D:/jars/evaluation-1.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

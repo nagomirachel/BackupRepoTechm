@@ -1,0 +1,95 @@
+
+
+docker pull registry.access.redhat.com/openshift3/ose-haproxy-router
+docker pull registry.access.redhat.com/openshift3/ose-deployer
+docker pull registry.access.redhat.com/openshift3/ose-sti-builder
+docker pull registry.access.redhat.com/openshift3/ose-docker-builder
+docker pull registry.access.redhat.com/openshift3/ose-pod
+docker pull registry.access.redhat.com/openshift3/ose-docker-registry
+docker pull registry.access.redhat.com/openshift3/ose-keepalived-ipfailover
+docker pull registry.access.redhat.com/openshift3/ruby-20-rhel7
+docker pull registry.access.redhat.com/openshift3/mysql-55-rhel7
+docker pull registry.access.redhat.com/openshift3/php-55-rhel7
+docker pull registry.access.redhat.com/jboss-eap-6/eap-openshift
+docker pull openshift/hello-openshift
+
+
+ oc label node ose-master.ose3.techmahindra.com  region=primary
+ oc label node osenode1.ose3.techmahindra.com region=infra
+
+ oadm registry --credentials=/etc/origin/master/openshift-registry.kubeconfig   --images='registry.access.redhat.com/openshift3/ose-${component}:${version}' --selector='region=primary'
+
+ oadm router --credentials=/etc/origin/master/openshift-registry.kubeconfig   --images='registry.access.redhat.com/openshift3/ose-${component}:${version}' --selector='region=primary' --service-account=router
+
+ iptables -I INPUT -p udp  -m udp --dport 53 -j ACCEPT
+ iptables -I INPUT -p tcp  -m tcp --dport 53 -j ACCEPT
+
+ iptables -I INPUT -p tcp -m tcp --dport 1936 -j ACCEPT
+[root@osenode1 ~]# useradd demo1
+ oc login -u demo1 --insecure-skip-tls-verify --server=https://ose-master.ose3.techmahindra.com:8443
+ oc login -u demo2 --insecure-skip-tls-verify --server=https://ose-master.ose3.techmahindra.com:8443
+ oc login -u demo3 --insecure-skip-tls-verify --server=https://ose-master.ose3.techmahindra.com:8443
+
+cat <<EOF > hello-pod.json  
+{  
+  "kind": "Pod",  
+  "apiVersion": "v1",  
+  "metadata": {  
+    "name": "hello-openshift",  
+    "creationTimestamp": null,  
+    "labels": {  
+      "name": "hello-openshift"  
+    }  
+  },  
+  "spec": {  
+    "containers": [  
+      {  
+        "name": "hello-openshift",  
+        "image": "openshift/hello-openshift:v0.4.3",  
+        "ports": [  
+          {  
+            "hostPort": 36061,  
+            "containerPort": 8080,  
+            "protocol": "TCP"  
+          }  
+        ],  
+        "resources": {  
+          "limits": {  
+            "cpu": "10m",  
+            "memory": "16Mi"  
+          }  
+        },  
+        "terminationMessagePath": "/dev/termination-log",  
+        "imagePullPolicy": "IfNotPresent",  
+        "capabilities": {},  
+        "securityContext": {  
+          "capabilities": {},  
+          "privileged": false  
+        },  
+        "nodeSelector": {  
+          "region": "primary"  
+        }  
+      }  
+    ],  
+    "restartPolicy": "Always",  
+    "dnsPolicy": "ClusterFirst",  
+    "serviceAccount": ""  
+  },  
+  "status": {}  
+}  
+EOF
+
+
+Create /usr/bin/delete-ose then chmod 777
+
+oc get -o json build,rc,dc,route,po,service,buildconfig,imagestream > /tmp/delete.json
+oc delete -f /tmp/delete.json
+oc delete pod `oc get pod|awk '{print $1}'|grep -`
+
+ You need to specify one of MYSQL_ROOT_PASSWORD, MYSQL_ALLOW_EMPTY_PASSWORD and MYSQL_RANDOM_ROOT_PASSWORD
+
+git ka43822@<<172.27.23.102>>/<<Git Project folder path>>
+
+https://www.youtube.com/watch?v=cpXw2I9zYPY
+https://blog.openshift.com/promoting-applications-across-environments/
+http://sharadchhetri.com/2013/06/01/how-to-install-own-git-server-with-ssh-and-http-access-by-using-gitolite-and-gitweb-in-centos/
